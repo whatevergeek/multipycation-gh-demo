@@ -1,9 +1,10 @@
 from arithmetic import *
 import pytest
-from hypothesis import given
+from hypothesis import given, settings
 import hypothesis.strategies as st
 
 @given(st.integers(), st.integers())
+@settings(max_examples=200)
 def test_commutative_property(factor1, factor2):
     assert multiply(factor1,factor2) == multiply(factor2,factor1)    
 
